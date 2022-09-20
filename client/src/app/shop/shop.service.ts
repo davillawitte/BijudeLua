@@ -1,3 +1,4 @@
+import { ShopParams } from './../shared/models/shopParams';
 import { IPagination } from '../shared/models/pagination';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,16 +13,16 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(typeId?:number, sort?: string){
+  getProducts(shopParams: ShopParams){
     let params = new HttpParams();
 
-    if (typeId){
-      params = params.append('typeId', typeId.toString());
+    if (shopParams.typeId !== 0){
+      params = params.append('typeId', shopParams.typeId.toString());
     }
 
-    if (sort){
-      params = params.append('sort', sort);
-    }
+      params = params.append('sort', shopParams.sort);
+      params = params.append('pageIndex', shopParams.pageNumber.toString());
+      params = params.append('pageIndex', shopParams.pageSize.toString())
     
     return this.http.get<IPagination>(this.baseUrl + 'products', {observe: 'response', params})
       .pipe(
