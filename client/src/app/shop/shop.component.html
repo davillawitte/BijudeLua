@@ -20,8 +20,7 @@
       </ul> -->
       <h5 class="text-warning ml-3">Modelos</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item"
-        *ngFor="let type of types"
+        <li class="list-group-item" *ngFor="let type of types"
         [class.active]="type.id === this.shopParams.typeId"
         [value]="type.id"
         (click)="onTypeSelected(type.id)"
@@ -43,8 +42,8 @@
         <div class="form-inline mt-2">
           <input (keyup.enter)="onSearch()" class="form-control mr-2" #search style="width: 300px" placeholder="Buscar na loja"
           type="text">
-          <button (click)="onSearch()" class="btn btn-outline-dark my-2" style= "background-color: rgb(248, 229, 56)" >Buscar</button>
-          <button (click)="onReset()" class="btn btn-outline-dark ml-2 my-2" style= "background-color: rgb(248, 229, 56)">Apagar</button>
+          <button (click)="onSearch()" class="btn btn-warning my-2" >Buscar</button>
+          <button (click)="onReset()" class="btn btn-warning ml-2 my-2">Apagar</button>
         </div>
       </div>
 
