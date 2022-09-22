@@ -1,0 +1,20 @@
+<div class="bg-light px-4 text-uppercase font-weight-bold" style="padding: 1.20em;">
+    Resumo da compra
+</div>
+<div class="p-4">
+    <p class="font-italic mb-4">Os custos de envio serão adicionados dependendo das escolhas feitas durante a finalização da compra</p>
+    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async)">
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Subtotal</strong>
+            <strong>{{(basketTotal$ | async).subtotal | currency: 'BRL'}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Envio</strong>
+            <strong>{{(basketTotal$ | async).shipping | currency: 'BRL'}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Total</strong>
+            <strong>{{(basketTotal$ | async).total | currency: 'BRL'}}</strong>
+        </li>
+    </ul>
+</div>
