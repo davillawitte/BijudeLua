@@ -4,7 +4,6 @@ import { BasketComponent } from './basket.component';
 import { BasketRoutingModule } from './basket-routing.module';
 
 
-
 @NgModule({
   declarations: [
     BasketComponent
