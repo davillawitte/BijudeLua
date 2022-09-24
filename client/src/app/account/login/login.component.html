@@ -5,14 +5,35 @@
               <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             </div>
           
+            <!-- VALIDAÇÕES DO EMAIL NO FRONT END -->
             <div class="form-label-group">
-              <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+              <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
               <label for="inputEmail">E-mail</label>
+              <span class="text-danger"
+               *ngIf="loginForm.get('email').invalid
+               && loginForm.get('email').touched
+               && loginForm.get('email').errors['required']">
+              Endereço de e-mail é obrigatório
+              </span>
+              <!-- VALIDAÇÕES DO EMAIL NO FRONT END -->
+              <span class="text-danger"
+               *ngIf="loginForm.get('email').invalid
+               && loginForm.get('email').touched
+               && loginForm.get('email').errors['pattern']">
+              Endereço de e-mail não é válido
+              </span>
             </div>
           
+            <!-- VALIDAÇÕES DA SENHA -->
             <div class="form-label-group">
-              <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+              <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
               <label for="inputPassword">Senha</label>
+              <span class="text-danger"
+               *ngIf="loginForm.get('password').invalid
+               && loginForm.get('password').touched
+               && loginForm.get('password').errors['required']">
+              Senha é obrigatória
+              </span>
             </div>
           
             <button class="btn btn-lg btn-warning btn-block" type="submit">Entrar</button>

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
     HttpClientModule,
     CoreModule,
     HomeModule,
-    BasketRoutingModule
+    BasketRoutingModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
